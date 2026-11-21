@@ -1,0 +1,4 @@
+* text=auto eol=lf
+extension/lib/** -text
+*.png binary
+*.wasm binary

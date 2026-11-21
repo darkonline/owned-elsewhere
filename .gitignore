@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.bmp
+tools/test-harness/
+*.db
+*.db-wal
+*.db-shm
+/*.csv
+/*.png

@@ -1,0 +1,166 @@
+/* Colours are chosen to differ from Steam's own green (discounts, "Add to cart") and blue (buttons). */
+.oe-banner, .oe-note, .oe-tag {
+  --oe-owned: #7b4ff0;
+  --oe-owned-2: #5a32c8;
+  --oe-maybe: #b9a3ff;
+  --oe-partial: #d98a00;
+  --oe-steam: #4b5664;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
+  box-sizing: border-box;
+}
+
+/* ---- game page banner ---- */
+.oe-banner {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 0 0 16px;
+  padding: 12px 40px 12px 16px;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 1.35;
+}
+.oe-banner::before {
+  content: "✓";
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, .2);
+}
+.oe-banner.oe-l-owned { background: linear-gradient(90deg, var(--oe-owned), var(--oe-owned-2)); }
+.oe-banner.oe-l-maybe { background: rgba(123, 79, 240, .14); border: 2px dashed var(--oe-maybe); color: #e6ddff; }
+.oe-banner.oe-l-maybe::before { content: "i"; font-family: Georgia, serif; font-style: italic; background: #e6ddff; color: #2b1a66; }
+.oe-banner.oe-l-steam { background: var(--oe-steam); color: #dfe6ec; padding-top: 9px; padding-bottom: 9px; }
+.oe-banner-title { font-size: 15px; font-weight: bold; }
+.oe-banner-stores { font-size: 14px; margin-top: 2px; }
+.oe-banner-note { font-size: 12px; margin-top: 4px; opacity: .85; }
+.oe-ignore {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  opacity: .6;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.oe-ignore:hover, .oe-ignore:focus-visible { opacity: 1; background: rgba(0, 0, 0, .25); }
+
+/* ---- notes inside purchase blocks and DLC bubbles ---- */
+.oe-note {
+  margin: 6px 0 10px;
+  padding: 6px 10px;
+  border-radius: 3px;
+  border-left: 4px solid var(--oe-owned);
+  background: rgba(123, 79, 240, .22);
+  color: #f1edff;
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: normal;
+}
+.oe-note.oe-l-partial { border-left-color: var(--oe-partial); background: rgba(217, 138, 0, .2); color: #fff2dc; }
+.oe-note.oe-l-maybe { border-left: 4px dashed var(--oe-maybe); background: rgba(123, 79, 240, .1); }
+.oe-note.oe-l-steam { border-left-color: #8f98a0; background: rgba(143, 152, 160, .18); color: #dfe6ec; }
+.oe-note-head { font-weight: bold; font-size: 13px; }
+.oe-note-line b { font-weight: bold; opacity: .85; }
+
+/* ---- lists: search, wishlist, cart ---- */
+.oe-tag {
+  display: inline-block;
+  margin: 3px 0 2px;
+  padding: 2px 8px 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.5;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  color: #fff;
+  background: var(--oe-owned);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+}
+.oe-tag::before { content: "✓ "; }
+.oe-tag.oe-l-partial { background: var(--oe-partial); }
+.oe-tag.oe-l-maybe { background: #e6ddff; color: #2b1a66; border: 1px dashed #7b4ff0; }
+.oe-tag.oe-l-maybe::before { content: ""; }
+.oe-tag.oe-l-steam { background: var(--oe-steam); color: #dfe6ec; }
+
+.search_result_row .oe-tag { display: block; width: max-content; }
+.oe-row.oe-row-owned { box-shadow: inset 5px 0 0 #7b4ff0 !important; background-color: rgba(123, 79, 240, .16) !important; }
+.oe-row.oe-row-partial { box-shadow: inset 5px 0 0 #d98a00 !important; }
+.oe-row.oe-row-maybe { box-shadow: inset 5px 0 0 #b9a3ff !important; }
+.oe-tag.oe-l-steam { background: #c6d4df; color: #1b2838; }
+
+/* ---- wishlist, cart, profile lists: tinted row, badge next to the title ---- */
+.oe-tag.oe-beside {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  display: block;
+  width: max-content;
+}
+.oe-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.oe-card.oe-row-owned::after { background: rgba(123, 79, 240, .2); box-shadow: inset 5px 0 0 #7b4ff0; }
+.oe-card.oe-row-partial::after { background: rgba(217, 138, 0, .14); box-shadow: inset 5px 0 0 #d98a00; }
+.oe-card.oe-row-maybe::after { background: rgba(185, 163, 255, .1); box-shadow: inset 5px 0 0 #b9a3ff; }
+.oe-card.oe-row-steam::after { background: rgba(198, 212, 223, .08); box-shadow: inset 5px 0 0 #c6d4df; }
+
+/* ---- tooltip ---- */
+.oe-tip {
+  position: fixed;
+  z-index: 2147483647;
+  display: none;
+  max-width: min(420px, calc(100vw - 16px));
+  padding: 8px 10px;
+  border-radius: 4px;
+  background: #0e141b;
+  border: 1px solid #7b4ff0;
+  color: #dfe6ec;
+  font: 12px/1.45 "Motiva Sans", Arial, sans-serif;
+  white-space: normal;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .6);
+  pointer-events: none;
+}
+.oe-tip > div + div { margin-top: 4px; }
+.oe-tip-title { font-weight: bold; color: #fff; }
+
+/* ---- hide in Steam ---- */
+.oe-hide { margin-top: 8px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.oe-hide-btn {
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .25);
+  color: inherit;
+  padding: 3px 10px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.oe-hide-btn:hover, .oe-hide-btn:focus-visible { background: rgba(0, 0, 0, .45); }
+.oe-hide-btn:disabled { opacity: .6; cursor: default; }
+.oe-hide-status { font-size: 12px; opacity: .9; }

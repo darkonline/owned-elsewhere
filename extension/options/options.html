@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="optionsTitle">Owned Elsewhere</title>
+  <link rel="stylesheet" href="../popup/common.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="top">
+    <img src="../icons/icon-48.png" alt="" width="40" height="40">
+    <div>
+      <h1 data-i18n="extShortName"></h1>
+      <p class="muted" data-i18n="extDescription"></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 data-i18n="secAdd"></h2>
+      <p class="muted" data-i18n="chooseSource"></p>
+      <div class="tiles" id="tiles" role="tablist"></div>
+
+      <div id="panel" class="panel" hidden>
+        <h3 id="panelTitle"></h3>
+        <ol id="panelSteps" class="steps"></ol>
+        <div id="panelPaths"></div>
+        <p id="panelNote" class="note" hidden></p>
+        <div id="panelPaste" hidden>
+          <textarea id="pasteText" rows="7" data-i18n-placeholder="pastePlaceholder"></textarea>
+          <div class="row">
+            <label class="inline"><span data-i18n="mapDefaultStore"></span> <select id="pasteStore" class="store-select"></select></label>
+            <button id="pasteImport" class="btn primary" type="button" data-i18n="import"></button>
+          </div>
+        </div>
+        <div id="panelLinks" class="row"></div>
+        <div id="panelFile" class="drop-zone small" tabindex="0" role="button">
+          <button id="panelPick" class="btn primary" type="button"></button>
+          <span class="muted" data-i18n="orDrop"></span>
+        </div>
+      </div>
+
+      <div id="dropZone" class="drop-zone" tabindex="0" role="button">
+        <div class="drop-big" data-i18n="dropHere"></div>
+        <div class="muted" data-i18n="dropFormats"></div>
+      </div>
+      <input type="file" id="fileInput" multiple hidden>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <div id="mapping" class="mapping" hidden>
+        <h3 data-i18n="mapTitle"></h3>
+        <p class="muted" data-i18n="mapHint"></p>
+        <div class="grid">
+          <label><span data-i18n="mapColTitle"></span><select id="mapTitle"></select></label>
+          <label><span data-i18n="mapColStore"></span><select id="mapStore"></select></label>
+          <label><span data-i18n="mapColPlatform"></span><select id="mapPlatform"></select></label>
+          <label><span data-i18n="mapColAppId"></span><select id="mapAppId"></select></label>
+          <label><span data-i18n="mapDefaultStore"></span><select id="mapDefaultStore" class="store-select"></select></label>
+        </div>
+        <div id="mapPreview" class="preview"></div>
+        <div class="row">
+          <button id="mapImport" class="btn primary" type="button" data-i18n="import"></button>
+          <button id="mapCancel" class="btn" type="button" data-i18n="cancel"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="secLibraries"></h2>
+      <div id="libs"></div>
+      <div class="row">
+        <button id="exportBtn" class="btn" type="button" data-i18n="exportBackup"></button>
+        <button id="clearAllBtn" class="btn danger" type="button" data-i18n="clearAll"></button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="secStores"></h2>
+      <p class="muted" data-i18n="storesHint"></p>
+      <div id="storeModes" class="store-modes"></div>
+    </section>
+
+    <section class="card" id="xboxCard">
+      <h2 data-i18n="secXbox"></h2>
+      <p class="muted" data-i18n="xboxHint"></p>
+      <div class="row">
+        <button id="xboxTemplate" class="btn" type="button" data-i18n="xboxTemplate"></button>
+        <button id="xboxImport" class="btn" type="button" data-i18n="xboxImport"></button>
+      </div>
+      <div class="row">
+        <input id="xboxFilter" type="search" data-i18n-placeholder="mapColTitle">
+        <label class="inline"><input type="checkbox" id="xboxOnlyNew" checked> <span data-i18n="xboxOnlyUnchecked"></span></label>
+      </div>
+      <div id="xboxList" class="xbox-list"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="secSettings"></h2>
+      <div id="settings" class="settings"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="secSearch"></h2>
+      <input id="search" type="search" data-i18n-placeholder="searchPlaceholder">
+      <div id="results" class="results"></div>
+      <h3 class="sub" data-i18n="secIgnored"></h3>
+      <div id="ignored" class="results"></div>
+    </section>
+  </main>
+
+  <footer class="muted">
+    <span data-i18n="privacyNote"></span>
+  </footer>
+
+  <script src="../lib/papaparse.min.js"></script>
+  <script src="../lib/sql-wasm.js"></script>
+  <script src="../src/shared.js"></script>
+  <script src="../src/importers.js"></script>
+  <script src="../popup/settings-ui.js"></script>
+  <script src="sources.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+{
+  "extName": {
+    "message": "Owned Elsewhere — library checker for Steam"
+  },
+  "extShortName": {
+    "message": "Owned Elsewhere"
+  },
+  "extDescription": {
+    "message": "Shows on Steam store pages which games you already own in Epic Games Store, GOG, Xbox, Ubisoft and other libraries."
+  },
+  "optionsTitle": {
+    "message": "Owned Elsewhere — libraries"
+  },
+  "secAdd": {
+    "message": "Add a library"
+  },
+  "chooseSource": {
+    "message": "Where is your library? Pick a source to see how to export it."
+  },
+  "dropHere": {
+    "message": "…or drop any supported file here"
+  },
+  "dropFormats": {
+    "message": "GOG Galaxy database (.db), CSV/TSV (Playnite, GOG Galaxy Export Script, spreadsheets), Heroic JSON, text list (.txt), backup (.json)"
+  },
+  "orDrop": {
+    "message": "or drop the file here"
+  },
+  "srcTagBest": {
+    "message": "most accurate"
+  },
+  "pickGalaxy": {
+    "message": "Choose galaxy-2.0.db…"
+  },
+  "pickCsv": {
+    "message": "Choose CSV file…"
+  },
+  "pickJson": {
+    "message": "Choose JSON file…"
+  },
+  "pickTxt": {
+    "message": "Choose .txt file…"
+  },
+  "src_galaxy_steps": {
+    "message": "Install GOG Galaxy 2.0 and sign in with a GOG account (free).\nConnect your stores: Settings (gear icon, top left) → Integrations → Connect next to Epic Games Store, Xbox, Ubisoft Connect, EA app, Amazon Games, Battle.net and others. Connect Steam too — then the extension knows what you already have on Steam.\nWait until the games appear under “All games” (usually a few minutes).\nQuit GOG Galaxy completely: tray icon → Exit. While it runs, the newest changes may not be written to the file yet.\nPress the button below, paste the path into the “File name” field and press Enter (ProgramData is a hidden folder, the path is the easy way in)."
+  },
+  "src_galaxy_note": {
+    "message": "Xbox libraries in Galaxy also contain Game Pass games, so Xbox matches are shown as “maybe” — change this under “Store trust”."
+  },
+  "src_playnite_steps": {
+    "message": "In Playnite press F9 (Add-ons) → Browse → Generic, find “Library Exporter Advanced”, install it and restart Playnite.\nOpen the add-on settings (F9 → Installed → Generic → Library Exporter Advanced) and enable at least the columns Name, Sources and Platforms. Platforms tells PC games from Xbox console games.\nExport: Playnite main menu → Extensions → Library Exporter Advanced → Export library, save the CSV file.\nDrop the file here or press the button below. No need to rename the columns: an export in any Playnite language works, titles with commas are read correctly."
+  },
+  "src_playnite_note": {
+    "message": "Playnite’s Xbox library lists every game you have launched, including Game Pass and Games with Gold titles, so Xbox matches are shown as “maybe owned”. You can confirm them under “Check Xbox games”."
+  },
+  "playniteNoPlatform": {
+    "message": "Tip: add the Platforms column to the export to tell Xbox console games from PC games."
+  },
+  "src_heroic_steps": {
+    "message": "Open Heroic and sign in to Epic, GOG and/or Amazon under “Manage accounts”. Wait until the library has loaded.\nPress the button below and open the store_cache folder (paths below). Choose legendary_library.json for Epic, gog_library.json for GOG, nile_library.json for Amazon — several files can be selected at once."
+  },
+  "src_stores_title": {
+    "message": "Epic, Xbox, Ubisoft, EA, Amazon, Battle.net"
+  },
+  "src_stores_steps": {
+    "message": "These stores have no library export of their own. Collect them through one of the apps below — they connect to all of these stores:\nGOG Galaxy 2.0 — the most accurate: gives exact Steam IDs for most games.\nPlaynite — any language, distinguishes PC and console games if you export the Platforms column.\nHeroic Games Launcher — Epic, GOG and Amazon only."
+  },
+  "src_galaxycsv_steps": {
+    "message": "Install Python 3 and download GOG Galaxy Export Script (github.com/AB1908/GOG-Galaxy-Export-Script).\nQuit GOG Galaxy, then in the script folder run: python galaxy_library_export.py\nChoose the resulting gameDB.csv."
+  },
+  "src_galaxycsv_note": {
+    "message": "Loading galaxy-2.0.db directly is more accurate: it also gives Steam IDs."
+  },
+  "src_csv_title": {
+    "message": "Other CSV / spreadsheet"
+  },
+  "src_csv_steps": {
+    "message": "Any table saved as CSV or TSV works (Excel, Google Sheets, other launchers). It needs a column with the game title; a store column and a Steam App ID column make matching better.\nAny delimiter and encoding (UTF-8, Windows-1251) is fine. If the columns are not recognised, you will be asked to pick them."
+  },
+  "src_list_title": {
+    "message": "List of titles"
+  },
+  "src_list_steps": {
+    "message": "Paste titles below, one game per line, or load a .txt file.\nYou can add the store after a tab, “ | ” or “;”, e.g. “Hades | Epic”. Otherwise the store selected below is used."
+  },
+  "pastePlaceholder": {
+    "message": "Disco Elysium\nGrand Theft Auto V | Epic Games Store"
+  },
+  "sourceTextList": {
+    "message": "Text list"
+  },
+  "src_backup_title": {
+    "message": "Backup"
+  },
+  "src_backup_steps": {
+    "message": "Restores libraries and settings saved with “Save backup” — for example, in another browser or on another computer."
+  },
+  "importing": {
+    "message": "Reading $1…"
+  },
+  "importDone": {
+    "message": "$1: $2 games imported."
+  },
+  "importDoneIds": {
+    "message": "$1: $2 games imported, $3 of them matched to Steam IDs."
+  },
+  "errImport": {
+    "message": "Could not import $1: $2"
+  },
+  "errWalFile": {
+    "message": "This is a GOG Galaxy service file. Choose galaxy-2.0.db instead."
+  },
+  "errNotGalaxyDb": {
+    "message": "This database is not a GOG Galaxy 2.0 library."
+  },
+  "errBadJson": {
+    "message": "The JSON file is damaged."
+  },
+  "errNoGamesFound": {
+    "message": "No games found in this file."
+  },
+  "txtLoaded": {
+    "message": "Text list loaded below: pick its store and press Import."
+  },
+  "mapTitle": {
+    "message": "Which columns are which?"
+  },
+  "mapHint": {
+    "message": "The file columns were not recognised automatically. Pick them once — the rest is automatic."
+  },
+  "mapColTitle": {
+    "message": "Game title"
+  },
+  "mapColStore": {
+    "message": "Store / library"
+  },
+  "mapColPlatform": {
+    "message": "Platform (optional)"
+  },
+  "mapColAppId": {
+    "message": "Steam App ID (optional)"
+  },
+  "mapDefaultStore": {
+    "message": "Store if not specified"
+  },
+  "mapNone": {
+    "message": "— none —"
+  },
+  "mapNeeded": {
+    "message": "Check the columns below."
+  },
+  "import": {
+    "message": "Import"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "secLibraries": {
+    "message": "Loaded libraries"
+  },
+  "noLibraries": {
+    "message": "Nothing loaded yet."
+  },
+  "libCount": {
+    "message": "$1 games"
+  },
+  "libWithIds": {
+    "message": "$1 with Steam ID"
+  },
+  "totalUnique": {
+    "message": "Unique games: $1"
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "clearAll": {
+    "message": "Remove all"
+  },
+  "confirmClearAll": {
+    "message": "Remove all loaded libraries?"
+  },
+  "cleared": {
+    "message": "All libraries removed."
+  },
+  "exportBackup": {
+    "message": "Save backup"
+  },
+  "confirmRestore": {
+    "message": "Replace current libraries and settings with this backup?"
+  },
+  "restored": {
+    "message": "Backup restored."
+  },
+  "secStores": {
+    "message": "Store trust"
+  },
+  "storesHint": {
+    "message": "“Owned” — a library entry means you bought the game. “Maybe owned” — a softer note: the store also lists subscription games (Xbox Game Pass, Games with Gold), console versions, or Windows-only releases when you play on macOS or Linux. Steam games are never reported as “elsewhere”: they only tell the extension that you already have the game on Steam."
+  },
+  "modeOwned": {
+    "message": "Owned"
+  },
+  "modeMaybe": {
+    "message": "Maybe owned"
+  },
+  "modeOff": {
+    "message": "Ignore"
+  },
+  "storeOther": {
+    "message": "other library"
+  },
+  "secSettings": {
+    "message": "Settings"
+  },
+  "set_showBundles": {
+    "message": "Show how much of a bundle you already own"
+  },
+  "set_showInLists": {
+    "message": "Mark games in search, wishlist, cart and store lists"
+  },
+  "set_matchByTitle": {
+    "message": "Match by title when there is no Steam ID"
+  },
+  "set_matchEditions": {
+    "message": "Note other editions (e.g. “GTA V” for “GTA V Legacy”) as “maybe”"
+  },
+  "set_showDlcBase": {
+    "message": "On DLC pages, note if the base game is owned"
+  },
+  "secSearch": {
+    "message": "Check a game"
+  },
+  "searchPlaceholder": {
+    "message": "Title or Steam App ID"
+  },
+  "searchNothing": {
+    "message": "Not found in your libraries."
+  },
+  "searchMore": {
+    "message": "…and $1 more"
+  },
+  "secIgnored": {
+    "message": "Games not marked on Steam"
+  },
+  "ignoredEmpty": {
+    "message": "None. Use × on a Steam page or “Don’t mark” above to hide a wrong match."
+  },
+  "ignoredTitle": {
+    "message": "Title “$1”"
+  },
+  "ignore": {
+    "message": "Don’t mark"
+  },
+  "unignore": {
+    "message": "Mark again"
+  },
+  "ignoreGame": {
+    "message": "Don’t mark this game (e.g. it was from a subscription)"
+  },
+  "copy": {
+    "message": "Copy"
+  },
+  "copied": {
+    "message": "Copied"
+  },
+  "privacyNote": {
+    "message": "Your library stays in this browser. Nothing is sent anywhere."
+  },
+  "openImport": {
+    "message": "Import and manage libraries"
+  },
+  "popupHint": {
+    "message": "Files are added on a full page: a popup closes when the file dialog opens."
+  },
+  "popupEmpty": {
+    "message": "No libraries yet. Add one to start."
+  },
+  "variant_console": {
+    "message": "console"
+  },
+  "variant_pc": {
+    "message": "PC"
+  },
+  "variant_winonly": {
+    "message": "Windows only"
+  },
+  "winOnlyNoteMac": {
+    "message": "The release in that store is for Windows only — it will not run on your Mac."
+  },
+  "winOnlyNoteLinux": {
+    "message": "The release in that store is for Windows only — on Linux it needs Proton/Wine (e.g. Heroic, Lutris), while the Steam version can run through Steam Play."
+  },
+  "osUnknownNote": {
+    "message": "Check that $2 has a $1 version — the library file does not say."
+  },
+  "hideInSteam": {
+    "message": "Hide in Steam: I own it elsewhere"
+  },
+  "unhideInSteam": {
+    "message": "Show in Steam again"
+  },
+  "hiddenInSteam": {
+    "message": "Hidden in Steam (Ignore → “Own it on another store”)."
+  },
+  "hideInSteamError": {
+    "message": "Steam did not accept the request. Are you signed in?"
+  },
+  "hideInSteamTip": {
+    "message": "Uses Steam’s own “Ignore” with the reason “I own it on another store”: the game stops appearing in recommendations and, if enabled in Steam, in search. Undo any time here or on the game page."
+  },
+  "set_myOS": {
+    "message": "I play on"
+  },
+  "os_auto": {
+    "message": "Detect automatically ($1)"
+  },
+  "os_win": {
+    "message": "Windows"
+  },
+  "os_mac": {
+    "message": "macOS"
+  },
+  "os_linux": {
+    "message": "Linux / Steam Deck"
+  },
+  "set_showCommunity": {
+    "message": "Mark games on Steam profile game lists (yours and friends’) — asks for access to steamcommunity.com"
+  },
+  "set_hideInSteamButton": {
+    "message": "Show the “Hide in Steam” button on game pages"
+  },
+  "secXbox": {
+    "message": "Check Xbox games"
+  },
+  "xboxHint": {
+    "message": "Xbox libraries mix bought games with Game Pass and Games with Gold titles, console-only releases and old Xbox 360 / Games for Windows Live licences, and miss bought games you never launched. Mark each game once — the mark then overrides the store trust setting. If a console game supports Xbox Play Anywhere, choose “Bought — playable on PC”."
+  },
+  "xboxTemplate": {
+    "message": "Download as a spreadsheet"
+  },
+  "xboxImport": {
+    "message": "Load filled-in spreadsheet"
+  },
+  "xboxOnlyUnchecked": {
+    "message": "Only unchecked"
+  },
+  "xboxProgress": {
+    "message": "Checked: $1 of $2"
+  },
+  "xboxColPlatform": {
+    "message": "Platform"
+  },
+  "xboxColStatus": {
+    "message": "Status"
+  },
+  "xboxImported": {
+    "message": "Xbox check: $1 games marked."
+  },
+  "verdict_none": {
+    "message": "— not checked —"
+  },
+  "verdict_pc": {
+    "message": "Bought — playable on PC"
+  },
+  "verdict_console": {
+    "message": "Bought — console only"
+  },
+  "verdict_sub": {
+    "message": "Subscription / not mine — ignore"
+  },
+  "verdictWord_pc": {
+    "message": "PC"
+  },
+  "verdictWord_console": {
+    "message": "console"
+  },
+  "verdictWord_sub": {
+    "message": "subscription"
+  },
+  "bannerOwned": {
+    "message": "You already own this game"
+  },
+  "bannerMaybe": {
+    "message": "Looks like you may already have this game"
+  },
+  "bannerLoose": {
+    "message": "You have another edition of this game"
+  },
+  "bannerSteam": {
+    "message": "This game is already in your Steam library"
+  },
+  "bannerSteamAlso": {
+    "message": "You also have this game in other libraries"
+  },
+  "alsoMaybe": {
+    "message": "Maybe also in: $1"
+  },
+  "alsoIn": {
+    "message": "Also in: $1"
+  },
+  "looseNote": {
+    "message": "Matched “$1” — a different edition or release, compare the contents."
+  },
+  "matchedByTitleNote": {
+    "message": "Matched by title (“$1”), not by Steam ID."
+  },
+  "consoleNote": {
+    "message": "Console version: it does not let you play on PC."
+  },
+  "xboxNote": {
+    "message": "Xbox libraries also list Game Pass and Games with Gold titles that you do not own."
+  },
+  "listOwned": {
+    "message": "Owned in: $1"
+  },
+  "listMaybe": {
+    "message": "Maybe owned in: $1"
+  },
+  "listLoose": {
+    "message": "Other edition in: $1"
+  },
+  "listSteam": {
+    "message": "In your Steam library"
+  },
+  "listSteamAlso": {
+    "message": "In Steam, also: $1"
+  },
+  "itemOwned": {
+    "message": "You already own this"
+  },
+  "itemMaybe": {
+    "message": "You may already have this"
+  },
+  "bundleAllOwned": {
+    "message": "You already own everything in this package ($1 of $1)"
+  },
+  "bundlePartial": {
+    "message": "You already own $1 of $2 items in this package"
+  },
+  "bundleMaybe": {
+    "message": "You may already have $1 of $2 items in this package"
+  },
+  "bundleAllOwnedShort": {
+    "message": "Owned: all $1"
+  },
+  "bundlePartialShort": {
+    "message": "Owned: $1 of $2"
+  },
+  "bundleMaybeShort": {
+    "message": "Maybe: $1 of $2"
+  },
+  "labelHave": {
+    "message": "Owned:"
+  },
+  "labelMaybe": {
+    "message": "Maybe owned:"
+  },
+  "labelMissing": {
+    "message": "Not owned:"
+  },
+  "dlcBaseOwned": {
+    "message": "Base game owned: $1"
+  },
+  "dlcBaseMaybe": {
+    "message": "Base game maybe owned: $1"
+  },
+  "dlcBaseSteam": {
+    "message": "Base game is in your Steam library"
+  }
+}

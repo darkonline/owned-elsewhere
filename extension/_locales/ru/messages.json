@@ -1,0 +1,470 @@
+{
+  "extName": {
+    "message": "Owned Elsewhere — проверка библиотек для Steam"
+  },
+  "extShortName": {
+    "message": "Owned Elsewhere"
+  },
+  "extDescription": {
+    "message": "Показывает в магазине Steam, какие игры у вас уже есть в Epic Games Store, GOG, Xbox, Ubisoft и других библиотеках."
+  },
+  "optionsTitle": {
+    "message": "Owned Elsewhere — библиотеки"
+  },
+  "secAdd": {
+    "message": "Добавить библиотеку"
+  },
+  "chooseSource": {
+    "message": "Где ваша библиотека? Выберите источник — появится инструкция, как её выгрузить."
+  },
+  "dropHere": {
+    "message": "…или просто перетащите сюда любой поддерживаемый файл"
+  },
+  "dropFormats": {
+    "message": "База GOG Galaxy (.db), CSV/TSV (Playnite, GOG Galaxy Export Script, таблицы), JSON из Heroic, список (.txt), резервная копия (.json)"
+  },
+  "orDrop": {
+    "message": "или перетащите файл сюда"
+  },
+  "srcTagBest": {
+    "message": "точнее всего"
+  },
+  "pickGalaxy": {
+    "message": "Выбрать galaxy-2.0.db…"
+  },
+  "pickCsv": {
+    "message": "Выбрать CSV-файл…"
+  },
+  "pickJson": {
+    "message": "Выбрать JSON-файл…"
+  },
+  "pickTxt": {
+    "message": "Выбрать .txt-файл…"
+  },
+  "src_galaxy_steps": {
+    "message": "Установите GOG Galaxy 2.0 и войдите в аккаунт GOG (бесплатно).\nПодключите магазины: Настройки (шестерёнка слева вверху) → Интеграции → «Подключить» у Epic Games Store, Xbox, Ubisoft Connect, EA app, Amazon Games, Battle.net и других. Steam тоже подключите — тогда расширение будет знать, что уже есть в Steam.\nДождитесь, пока игры появятся в разделе «Все игры» (обычно несколько минут).\nПолностью закройте GOG Galaxy: значок в трее → «Выход». Пока Galaxy работает, свежие изменения могут быть ещё не записаны в файл.\nНажмите кнопку ниже, вставьте путь в поле «Имя файла» и нажмите Enter (папка ProgramData скрытая, так проще всего)."
+  },
+  "src_galaxy_note": {
+    "message": "Библиотека Xbox в Galaxy включает и игры из Game Pass, поэтому совпадения с Xbox показываются как «возможно» — это меняется в разделе «Доверие к магазинам»."
+  },
+  "src_playnite_steps": {
+    "message": "В Playnite нажмите F9 («Дополнения») → «Обзор» → «Общие», найдите «Library Exporter Advanced», установите и перезапустите Playnite.\nОткройте настройки дополнения (F9 → «Установленные» → «Общие» → Library Exporter Advanced) и включите как минимум колонки «Название», «Источники» и «Платформы». «Платформы» нужны, чтобы отличать игры для ПК от консольных игр Xbox.\nВыгрузка: главное меню Playnite → «Расширения» → Library Exporter Advanced → «Export library», сохраните CSV-файл.\nПеретащите файл сюда или нажмите кнопку ниже. Переименовывать колонки не нужно: подойдёт выгрузка на любом языке Playnite, названия с запятыми читаются правильно."
+  },
+  "src_playnite_note": {
+    "message": "Библиотека Xbox в Playnite содержит все запускавшиеся игры, в том числе из Game Pass и Games with Gold, поэтому совпадения с Xbox показываются как «возможно есть». Уточнить их можно в разделе «Проверка игр Xbox»."
+  },
+  "playniteNoPlatform": {
+    "message": "Совет: добавьте в выгрузку колонку «Платформы», чтобы отличать консольные игры Xbox от ПК."
+  },
+  "src_heroic_steps": {
+    "message": "Откройте Heroic и войдите в Epic, GOG и/или Amazon в разделе «Управление аккаунтами». Дождитесь загрузки библиотеки.\nНажмите кнопку ниже и откройте папку store_cache (пути ниже). Выберите legendary_library.json для Epic, gog_library.json для GOG, nile_library.json для Amazon — можно несколько файлов сразу."
+  },
+  "src_stores_title": {
+    "message": "Epic, Xbox, Ubisoft, EA, Amazon, Battle.net"
+  },
+  "src_stores_steps": {
+    "message": "У этих магазинов нет собственной выгрузки библиотеки. Соберите их через одну из программ ниже — они подключаются ко всем этим магазинам:\nGOG Galaxy 2.0 — точнее всего: даёт точные Steam ID для большинства игр.\nPlaynite — любой язык, отличает игры для ПК и консолей, если выгрузить колонку «Платформы».\nHeroic Games Launcher — только Epic, GOG и Amazon."
+  },
+  "src_galaxycsv_steps": {
+    "message": "Установите Python 3 и скачайте GOG Galaxy Export Script (github.com/AB1908/GOG-Galaxy-Export-Script).\nЗакройте GOG Galaxy и в папке скрипта выполните: python galaxy_library_export.py\nВыберите получившийся файл gameDB.csv."
+  },
+  "src_galaxycsv_note": {
+    "message": "Загрузка самой базы galaxy-2.0.db точнее: она даёт ещё и Steam ID."
+  },
+  "src_csv_title": {
+    "message": "Другой CSV / таблица"
+  },
+  "src_csv_steps": {
+    "message": "Подойдёт любая таблица, сохранённая как CSV или TSV (Excel, Google Таблицы, другие лаунчеры). Нужна колонка с названием игры; колонки магазина и Steam App ID улучшают сравнение.\nРазделитель и кодировка (UTF-8, Windows-1251) любые. Если колонки не распознаются, расширение предложит выбрать их вручную."
+  },
+  "src_list_title": {
+    "message": "Список названий"
+  },
+  "src_list_steps": {
+    "message": "Вставьте названия ниже, по одной игре на строку, или загрузите .txt-файл.\nМагазин можно указать через табуляцию, « | » или «;», например «Hades | Epic». Иначе будет взят магазин, выбранный ниже."
+  },
+  "pastePlaceholder": {
+    "message": "Disco Elysium\nGrand Theft Auto V | Epic Games Store"
+  },
+  "sourceTextList": {
+    "message": "Список"
+  },
+  "src_backup_title": {
+    "message": "Резервная копия"
+  },
+  "src_backup_steps": {
+    "message": "Восстанавливает библиотеки и настройки, сохранённые кнопкой «Сохранить копию», — например, в другом браузере или на другом компьютере."
+  },
+  "importing": {
+    "message": "Читаю $1…"
+  },
+  "importDone": {
+    "message": "$1: загружено игр — $2."
+  },
+  "importDoneIds": {
+    "message": "$1: загружено игр — $2, из них с точным Steam ID — $3."
+  },
+  "errImport": {
+    "message": "Не удалось загрузить $1: $2"
+  },
+  "errWalFile": {
+    "message": "Это служебный файл GOG Galaxy. Выберите galaxy-2.0.db."
+  },
+  "errNotGalaxyDb": {
+    "message": "Эта база данных не похожа на библиотеку GOG Galaxy 2.0."
+  },
+  "errBadJson": {
+    "message": "Файл JSON повреждён."
+  },
+  "errNoGamesFound": {
+    "message": "В файле не найдено игр."
+  },
+  "txtLoaded": {
+    "message": "Список загружен ниже: выберите магазин и нажмите «Загрузить»."
+  },
+  "mapTitle": {
+    "message": "Какие колонки за что отвечают?"
+  },
+  "mapHint": {
+    "message": "Колонки файла не распознались автоматически. Укажите их — остальное расширение сделает само."
+  },
+  "mapColTitle": {
+    "message": "Название игры"
+  },
+  "mapColStore": {
+    "message": "Магазин / библиотека"
+  },
+  "mapColPlatform": {
+    "message": "Платформа (необязательно)"
+  },
+  "mapColAppId": {
+    "message": "Steam App ID (необязательно)"
+  },
+  "mapDefaultStore": {
+    "message": "Магазин, если не указан"
+  },
+  "mapNone": {
+    "message": "— нет —"
+  },
+  "mapNeeded": {
+    "message": "Проверьте колонки ниже."
+  },
+  "import": {
+    "message": "Загрузить"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "secLibraries": {
+    "message": "Загруженные библиотеки"
+  },
+  "noLibraries": {
+    "message": "Пока ничего не загружено."
+  },
+  "libCount": {
+    "message": "игр: $1"
+  },
+  "libWithIds": {
+    "message": "с Steam ID: $1"
+  },
+  "totalUnique": {
+    "message": "Уникальных игр: $1"
+  },
+  "remove": {
+    "message": "Удалить"
+  },
+  "clearAll": {
+    "message": "Удалить все"
+  },
+  "confirmClearAll": {
+    "message": "Удалить все загруженные библиотеки?"
+  },
+  "cleared": {
+    "message": "Все библиотеки удалены."
+  },
+  "exportBackup": {
+    "message": "Сохранить копию"
+  },
+  "confirmRestore": {
+    "message": "Заменить текущие библиотеки и настройки данными из копии?"
+  },
+  "restored": {
+    "message": "Копия восстановлена."
+  },
+  "secStores": {
+    "message": "Доверие к магазинам"
+  },
+  "storesHint": {
+    "message": "«Есть» — запись в библиотеке означает, что игра куплена. «Возможно есть» — мягкая пометка: в библиотеке магазина бывают игры по подписке (Xbox Game Pass, Games with Gold), консольные версии или версии только для Windows, если вы играете на macOS или Linux. Игры из Steam никогда не показываются как «в другом месте» — по ним расширение лишь понимает, что игра уже есть в Steam."
+  },
+  "modeOwned": {
+    "message": "Есть"
+  },
+  "modeMaybe": {
+    "message": "Возможно есть"
+  },
+  "modeOff": {
+    "message": "Не учитывать"
+  },
+  "storeOther": {
+    "message": "другая библиотека"
+  },
+  "secSettings": {
+    "message": "Настройки"
+  },
+  "set_showBundles": {
+    "message": "Показывать, какая часть набора у вас уже есть"
+  },
+  "set_showInLists": {
+    "message": "Отмечать игры в поиске, списке желаемого, корзине и подборках"
+  },
+  "set_matchByTitle": {
+    "message": "Сравнивать по названию, если нет Steam ID"
+  },
+  "set_matchEditions": {
+    "message": "Отмечать другие издания (например «GTA V» для «GTA V Legacy») как «возможно»"
+  },
+  "set_showDlcBase": {
+    "message": "На страницах DLC отмечать, есть ли основная игра"
+  },
+  "secSearch": {
+    "message": "Проверить игру"
+  },
+  "searchPlaceholder": {
+    "message": "Название или Steam App ID"
+  },
+  "searchNothing": {
+    "message": "В ваших библиотеках не найдено."
+  },
+  "searchMore": {
+    "message": "…и ещё $1"
+  },
+  "secIgnored": {
+    "message": "Игры, которые не отмечаются в Steam"
+  },
+  "ignoredEmpty": {
+    "message": "Нет. Нажмите × на странице Steam или «Не отмечать» выше, чтобы скрыть неверное совпадение."
+  },
+  "ignoredTitle": {
+    "message": "Название «$1»"
+  },
+  "ignore": {
+    "message": "Не отмечать"
+  },
+  "unignore": {
+    "message": "Отмечать снова"
+  },
+  "ignoreGame": {
+    "message": "Не отмечать эту игру (например, она была по подписке)"
+  },
+  "copy": {
+    "message": "Копировать"
+  },
+  "copied": {
+    "message": "Скопировано"
+  },
+  "privacyNote": {
+    "message": "Библиотека хранится только в этом браузере и никуда не отправляется."
+  },
+  "openImport": {
+    "message": "Загрузить и настроить библиотеки"
+  },
+  "popupHint": {
+    "message": "Файлы добавляются на отдельной странице: всплывающее окно закрывается при открытии выбора файла."
+  },
+  "popupEmpty": {
+    "message": "Библиотеки ещё не загружены. Добавьте хотя бы одну."
+  },
+  "variant_console": {
+    "message": "консоль"
+  },
+  "variant_pc": {
+    "message": "ПК"
+  },
+  "variant_winonly": {
+    "message": "только Windows"
+  },
+  "winOnlyNoteMac": {
+    "message": "Версия в этом магазине только для Windows — на вашем Mac она не запустится."
+  },
+  "winOnlyNoteLinux": {
+    "message": "Версия в этом магазине только для Windows — на Linux её придётся запускать через Proton/Wine (например, Heroic или Lutris), а версию из Steam — через Steam Play."
+  },
+  "osUnknownNote": {
+    "message": "Проверьте, есть ли в $2 версия для $1 — в файле библиотеки это не указано."
+  },
+  "hideInSteam": {
+    "message": "Скрыть в Steam: есть в другом магазине"
+  },
+  "unhideInSteam": {
+    "message": "Вернуть в Steam"
+  },
+  "hiddenInSteam": {
+    "message": "Скрыто в Steam («Скрыть» → «Есть в другом магазине»)."
+  },
+  "hideInSteamError": {
+    "message": "Steam не принял запрос. Вы вошли в аккаунт?"
+  },
+  "hideInSteamTip": {
+    "message": "Использует штатную функцию Steam «Скрыть» с причиной «Есть в другом магазине»: игра пропадёт из рекомендаций и, если это включено в настройках Steam, из поиска. Отменить можно здесь или на странице игры."
+  },
+  "set_myOS": {
+    "message": "Я играю на"
+  },
+  "os_auto": {
+    "message": "Определить автоматически ($1)"
+  },
+  "os_win": {
+    "message": "Windows"
+  },
+  "os_mac": {
+    "message": "macOS"
+  },
+  "os_linux": {
+    "message": "Linux / Steam Deck"
+  },
+  "set_showCommunity": {
+    "message": "Отмечать игры в списках игр профилей Steam (ваших и друзей) — попросит доступ к steamcommunity.com"
+  },
+  "set_hideInSteamButton": {
+    "message": "Показывать кнопку «Скрыть в Steam» на страницах игр"
+  },
+  "secXbox": {
+    "message": "Проверка игр Xbox"
+  },
+  "xboxHint": {
+    "message": "В библиотеке Xbox вперемешку купленные игры, игры из Game Pass и Games with Gold, консольные версии и старые лицензии Xbox 360 / Games for Windows Live, а купленные, но ни разу не запущенные игры туда не попадают. Отметьте каждую игру один раз — отметка важнее настройки доверия к магазину. Если консольная игра поддерживает Xbox Play Anywhere, выберите «Куплено — есть на ПК»."
+  },
+  "xboxTemplate": {
+    "message": "Скачать таблицей"
+  },
+  "xboxImport": {
+    "message": "Загрузить заполненную таблицу"
+  },
+  "xboxOnlyUnchecked": {
+    "message": "Только непроверенные"
+  },
+  "xboxProgress": {
+    "message": "Проверено: $1 из $2"
+  },
+  "xboxColPlatform": {
+    "message": "Платформа"
+  },
+  "xboxColStatus": {
+    "message": "Статус"
+  },
+  "xboxImported": {
+    "message": "Проверка Xbox: отмечено игр — $1."
+  },
+  "verdict_none": {
+    "message": "— не проверено —"
+  },
+  "verdict_pc": {
+    "message": "Куплено — есть на ПК"
+  },
+  "verdict_console": {
+    "message": "Куплено — только консоль"
+  },
+  "verdict_sub": {
+    "message": "Подписка / не моя — не учитывать"
+  },
+  "verdictWord_pc": {
+    "message": "ПК"
+  },
+  "verdictWord_console": {
+    "message": "консоль"
+  },
+  "verdictWord_sub": {
+    "message": "подписка"
+  },
+  "bannerOwned": {
+    "message": "Эта игра у вас уже есть"
+  },
+  "bannerMaybe": {
+    "message": "Похоже, эта игра у вас уже есть"
+  },
+  "bannerLoose": {
+    "message": "У вас есть другое издание этой игры"
+  },
+  "bannerSteam": {
+    "message": "Эта игра уже есть в вашей библиотеке Steam"
+  },
+  "bannerSteamAlso": {
+    "message": "Эта игра есть и в других ваших библиотеках"
+  },
+  "alsoMaybe": {
+    "message": "Возможно, есть и в: $1"
+  },
+  "alsoIn": {
+    "message": "Также есть: $1"
+  },
+  "looseNote": {
+    "message": "Совпадение с «$1» — это другое издание или выпуск, сравните состав."
+  },
+  "matchedByTitleNote": {
+    "message": "Совпадение по названию («$1»), а не по Steam ID."
+  },
+  "consoleNote": {
+    "message": "Консольная версия: на ПК в неё не поиграть."
+  },
+  "xboxNote": {
+    "message": "В библиотеке Xbox бывают игры из Game Pass и Games with Gold, которые вам не принадлежат."
+  },
+  "listOwned": {
+    "message": "Есть в: $1"
+  },
+  "listMaybe": {
+    "message": "Возможно есть в: $1"
+  },
+  "listLoose": {
+    "message": "Другое издание в: $1"
+  },
+  "listSteam": {
+    "message": "Есть в Steam"
+  },
+  "listSteamAlso": {
+    "message": "Есть в Steam, а также: $1"
+  },
+  "itemOwned": {
+    "message": "Это у вас уже есть"
+  },
+  "itemMaybe": {
+    "message": "Возможно, это у вас уже есть"
+  },
+  "bundleAllOwned": {
+    "message": "Всё из этого набора у вас уже есть ($1 из $1)"
+  },
+  "bundlePartial": {
+    "message": "Из этого набора у вас уже есть $1 из $2"
+  },
+  "bundleMaybe": {
+    "message": "Возможно, из этого набора у вас уже есть $1 из $2"
+  },
+  "bundleAllOwnedShort": {
+    "message": "Есть всё: $1"
+  },
+  "bundlePartialShort": {
+    "message": "Есть $1 из $2"
+  },
+  "bundleMaybeShort": {
+    "message": "Возможно: $1 из $2"
+  },
+  "labelHave": {
+    "message": "Есть:"
+  },
+  "labelMaybe": {
+    "message": "Возможно есть:"
+  },
+  "labelMissing": {
+    "message": "Нет:"
+  },
+  "dlcBaseOwned": {
+    "message": "Основная игра есть: $1"
+  },
+  "dlcBaseMaybe": {
+    "message": "Основная игра, возможно, есть: $1"
+  },
+  "dlcBaseSteam": {
+    "message": "Основная игра есть в Steam"
+  }
+}

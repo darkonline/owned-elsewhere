@@ -1,0 +1,19 @@
+{
+  "name": "owned-elsewhere",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Browser extension: shows on Steam store pages which games you already own in other libraries.",
+  "license": "MIT",
+  "scripts": {
+    "locales": "node tools/locales.js",
+    "test": "node tools/test-unit.js",
+    "e2e": "node tools/e2e.js",
+    "build": "node tools/build.js",
+    "vendor": "node -e \"const fs=require('fs');for(const[f,t]of[['node_modules/sql.js/dist/sql-wasm.js','sql-wasm.js'],['node_modules/sql.js/dist/sql-wasm.wasm','sql-wasm.wasm'],['node_modules/papaparse/papaparse.min.js','papaparse.min.js']])fs.copyFileSync(f,'extension/lib/'+t)\""
+  },
+  "devDependencies": {
+    "papaparse": "5.5.3",
+    "sql.js": "1.12.0"
+  },
+  "author": "Kreata Media"
+}

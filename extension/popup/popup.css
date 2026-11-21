@@ -1,0 +1,10 @@
+body { width: 320px; padding: 14px; }
+header { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+header h1 { font-size: 15px; margin: 0; }
+.summary { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+.summary.empty { color: var(--muted); font-weight: normal; }
+.libs { font-size: 12px; margin-bottom: 12px; }
+.libs div { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; border-bottom: 1px solid var(--line); }
+.wide { width: 100%; }
+.hint { font-size: 11px; margin: 6px 0 10px; }
+details summary { cursor: pointer; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
