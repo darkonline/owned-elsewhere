@@ -240,8 +240,14 @@ var OE = (() => {
     return baseName(base) + ' (' + t('variant_' + variant) + ')';
   }
 
-  /** "Xbox (PC, console), Epic Games Store" — variants of one store are grouped. */
-  function storesText(keys) {
+  // Short store names for compact badges in lists, where the space before the release date is tight.
+  const SHORT_NAMES = {
+    'Epic Games Store': 'EGS', 'Ubisoft Connect': 'Ubisoft', 'Amazon Games': 'Amazon',
+    'Rockstar Games Launcher': 'Rockstar', 'Bethesda.net': 'Bethesda', 'Xbox / Microsoft Store': 'Xbox'
+  };
+
+  /** "Xbox (PC, console), Epic Games Store" — variants of one store are grouped; short = compact names for lists. */
+  function storesText(keys, short) {
     const groups = new Map();
     keys.forEach(k => {
       const [base, variant] = splitKey(k);
@@ -250,6 +256,7 @@ var OE = (() => {
     });
     return [...groups].map(([base, vs]) => {
       const named = [...vs].filter(Boolean).map(v => t('variant_' + v));
+      if (short && SHORT_NAMES[base]) return SHORT_NAMES[base] + (named.length ? ' (' + named.join(', ') + ')' : '');
       if (!named.length) return base === XBOX ? XBOX : baseName(base);
       return baseName(base) + ' (' + named.join(', ') + ')';
     }).join(', ');

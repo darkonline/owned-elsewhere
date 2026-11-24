@@ -117,7 +117,7 @@
   white-space: nowrap;
   line-height: 16px;
 }
-.steam-ext-badges > * { flex: none; margin: 0 !important; }
+.steam-ext-badges > * { flex: 0 1 auto; min-width: 0; margin: 0 !important; }
 .steam-ext-badges > .oe-tag { order: 0; padding: 0 6px; font-size: 11px; line-height: 16px; }
 .oe-row.oe-row-owned { box-shadow: inset 5px 0 0 #7b4ff0 !important; background-color: rgba(123, 79, 240, .16) !important; }
 .oe-row.oe-row-partial { box-shadow: inset 5px 0 0 #d98a00 !important; }
@@ -184,3 +184,8 @@
 .steam-ext-badges.steam-ext-badges-placed { margin-top: 0; }
 .oe-tag.oe-overlay { position: absolute; left: 6px; bottom: 6px; z-index: 3; max-width: calc(100% - 12px); margin: 0; }
 .steam-ext-badges > .oe-tag { max-width: 220px; overflow: hidden; text-overflow: ellipsis; }
+
+/* When space before the release date is short, every badge shrinks with an ellipsis instead of the last ones being cut off. */
+.steam-ext-badges > .oe-tag { min-width: 48px; overflow: hidden; text-overflow: ellipsis; }
+.steam-ext-badges > .dc-chips { overflow: hidden; }
+.steam-ext-badges .dc-chip { flex: 0 1 auto; min-width: 28px; overflow: hidden; text-overflow: ellipsis; }

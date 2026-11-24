@@ -241,7 +241,7 @@ const S = {
   listMaybe: ['Maybe owned in: $1', 'Возможно есть в: $1'],
   listLoose: ['Other edition in: $1', 'Другое издание в: $1'],
   listSteam: ['In your Steam library', 'Есть в Steam'],
-  listSteamAlso: ['In Steam, also: $1', 'Есть в Steam, а также: $1'],
+  listSteamAlso: ['In Steam and $1', 'Есть в Steam и $1'],
 
   itemOwned: ['You already own this', 'Это у вас уже есть'],
   itemMaybe: ['You may already have this', 'Возможно, это у вас уже есть'],

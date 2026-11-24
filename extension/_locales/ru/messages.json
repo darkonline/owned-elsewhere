@@ -423,7 +423,7 @@
     "message": "Есть в Steam"
   },
   "listSteamAlso": {
-    "message": "Есть в Steam, а также: $1"
+    "message": "Есть в Steam и $1"
   },
   "itemOwned": {
     "message": "Это у вас уже есть"

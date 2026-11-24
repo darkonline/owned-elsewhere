@@ -4,7 +4,9 @@
 
 - Search results: the badge no longer makes rows taller (there was empty space under the game image). It now sits on the
   platform-icons line, after the icons and before the release date, in a row shared with DRM Check.
-- Long badges end with an ellipsis; the full text is in the tooltip.
+- When space is short, all badges in the row shrink with an ellipsis instead of the last ones being cut off; the full
+  text is in the tooltip. List badges use short store names ("In Steam and EGS").
+- Scripts left running in open tabs after the extension is updated or reloaded now stop instead of showing raw text keys.
 - Steam profile game lists: the page script is registered again automatically after an extension update or a browser
   restart (it used to disappear until the settings page was opened). If a game title is not found next to the image,
   the badge is shown over the image.

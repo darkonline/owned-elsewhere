@@ -423,7 +423,7 @@
     "message": "In your Steam library"
   },
   "listSteamAlso": {
-    "message": "In Steam, also: $1"
+    "message": "In Steam and $1"
   },
   "itemOwned": {
     "message": "You already own this"

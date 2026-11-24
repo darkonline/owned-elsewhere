@@ -128,9 +128,10 @@
   /** Compact badge for lists (search, wishlist, cart). */
   function listBadge(c) {
     let text;
-    if (c.level === 'owned') text = t('listOwned', [storesText(c.owned)]);
-    else if (c.level === 'maybe') text = t(c.how === 'loose' ? 'listLoose' : 'listMaybe', [storesText(c.maybe)]);
-    else text = c.owned.length || c.maybe.length ? t('listSteamAlso', [storesText(c.owned.concat(c.maybe))]) : t('listSteam');
+    const short = keys => OE.storesText(keys, true);
+    if (c.level === 'owned') text = t('listOwned', [short(c.owned)]);
+    else if (c.level === 'maybe') text = t(c.how === 'loose' ? 'listLoose' : 'listMaybe', [short(c.maybe)]);
+    else text = c.owned.length || c.maybe.length ? t('listSteamAlso', [short(c.owned.concat(c.maybe))]) : t('listSteam');
     const b = el('div', 'oe-tag oe-l-' + c.level, text);
     attachTip(b, [c.title].concat(hintsFor(c)));
     return b;
@@ -549,7 +550,12 @@
 
   const isCommunity = location.hostname === 'steamcommunity.com';
 
+  // After the extension is updated or reloaded, scripts already running in open tabs lose access to it
+  // (no translations, no storage). Such an orphaned script must stop instead of drawing broken badges.
+  const alive = () => { try { return !!(chrome.runtime && chrome.runtime.id); } catch (e) { return false; } };
+
   function run() {
+    if (!alive()) { observer.disconnect(); return; }
     if (!index || (!index.byApp.size && !index.byTitle.size)) return;
     const path = location.pathname;
     if (isCommunity) {
@@ -570,6 +576,7 @@
   else window.addEventListener('load', settle, { once: true });
 
   let scheduled = false;
+  const observer = new MutationObserver(() => schedule());
   function schedule() {
     if (scheduled) return;
     scheduled = true;
@@ -596,5 +603,5 @@
 
   ready = load();
   ready.then(run);
-  new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true });
+  observer.observe(document.body, { childList: true, subtree: true });
 })();
