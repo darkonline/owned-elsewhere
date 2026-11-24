@@ -1,5 +1,9 @@
 # Owned Elsewhere — library checker for Steam
 
+[![Get it from Microsoft Edge Add-ons](https://img.shields.io/badge/Microsoft%20Edge-Get%20the%20add--on-0078D7?style=for-the-badge&logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/cofnfdoinmhiallggicbamajnemcljgi)
+
+![Owned Elsewhere on a Steam game page: a "You already own this game" banner and bundle notes](store/screenshots/en/app-632470.png)
+
 [Русская версия](README.ru.md)
 
 A browser extension that marks games on the Steam store that you already own in **other** libraries —
