@@ -2,7 +2,7 @@
 
 [![Get it from Microsoft Edge Add-ons](store/badges/edge-add-ons.svg)](https://microsoftedge.microsoft.com/addons/detail/cofnfdoinmhiallggicbamajnemcljgi)
 
-![Owned Elsewhere on a Steam game page: a "You already own this game" banner and bundle notes](store/screenshots/en/app-632470.png)
+![Owned Elsewhere on a Steam game page: a "You already own this game: Epic Games Store" banner and a bundle note](store/screenshots/en/app-3240220.png)
 
 [Русская версия](README.ru.md)
 
