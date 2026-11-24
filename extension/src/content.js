@@ -370,6 +370,42 @@
     row.classList.add('oe-row', 'oe-row-' + level);
   }
 
+  /**
+   * Shared row of badges under a title in Steam lists. It is positioned over the free space under the title,
+   * so the list row keeps its height (rows there have a fixed-height image). DRM Check uses the same element.
+   */
+  function badgeRow(titleEl) {
+    let box = titleEl.parentElement.querySelector(':scope > .steam-ext-badges');
+    if (!box) {
+      box = el('div', 'steam-ext-badges');
+      titleEl.insertAdjacentElement('afterend', box);
+    }
+    return box;
+  }
+
+
+  /**
+   * Places the shared badge row of a search result on the platform-icons line, right after the icons and before the
+   * release date, so it covers nothing and the row keeps its height. Owned Elsewhere and DRM Check share this code.
+   */
+  function placeBadgeRow(row) {
+    const box = row.querySelector('.steam-ext-badges');
+    const plats = row.querySelector('.search_platforms');
+    if (!box || !plats) return;
+    const rb = row.getBoundingClientRect();
+    if (!rb.width) return;
+    const pr = plats.getBoundingClientRect();
+    const icons = [...plats.children].filter(c => c.getBoundingClientRect().width);
+    const left = (icons.length ? icons[icons.length - 1].getBoundingClientRect().right + 10 : pr.left) - rb.left;
+    const released = row.querySelector('.search_released');
+    const limit = released && released.getBoundingClientRect().width ? released.getBoundingClientRect().left - rb.left - 10 : rb.width * 0.6;
+    box.classList.add('steam-ext-badges-placed');
+    box.style.left = left + 'px';
+    box.style.top = (pr.top - rb.top + (pr.height - 16) / 2) + 'px';
+    box.style.maxWidth = Math.max(60, limit - left) + 'px';
+  }
+  window.addEventListener('resize', () => document.querySelectorAll('a.search_result_row').forEach(placeBadgeRow));
+
   function processRow(row, titleSel) {
     if (row.dataset.oeDone) return;
     row.dataset.oeDone = '1';
@@ -383,7 +419,8 @@
       if (!c) return;
       // Steam already flags games owned there; add a badge only when other stores have it too.
       if (c.level === 'steam' && steamOwned && !c.owned.length && !c.maybe.length) return;
-      titleEl.insertAdjacentElement('afterend', listBadge(c));
+      badgeRow(titleEl).appendChild(listBadge(c));
+      if (row.matches('.search_result_row')) placeBadgeRow(row);
       markRow(row, c.level);
       return;
     }
@@ -396,7 +433,8 @@
     const text = have === ids.length ? t('bundleAllOwnedShort', [String(ids.length)])
       : have ? t('bundlePartialShort', [String(have), String(ids.length)])
       : t('bundleMaybeShort', [String(maybe), String(ids.length)]);
-    titleEl.insertAdjacentElement('afterend', el('div', 'oe-tag oe-l-' + level, text));
+    badgeRow(titleEl).appendChild(el('div', 'oe-tag oe-l-' + level, text));
+    if (row.matches('.search_result_row')) placeBadgeRow(row);
     markRow(row, level);
   }
 
@@ -477,10 +515,19 @@
       const card = findCard(a, appid);
       if (card.dataset.oeCard) return;
       const titleEl = findTitle(card, img.alt, appid);
-      if (!titleEl) return; // recommendation capsules without a title
+      // Store pages: capsules without a title are recommendations, skip them. Profile game lists: if the title
+      // cannot be found next to the image, the badge goes over the image instead.
+      if (!titleEl && !isCommunity) return;
       card.dataset.oeCard = appid;
-      const c = classify(lookup(appid, img.alt || titleEl.textContent.trim(), true), false);
+      const c = classify(lookup(appid, img.alt || (titleEl ? titleEl.textContent.trim() : ''), true), false);
       if (!c) return;
+      if (!titleEl) {
+        const badge = listBadge(c);
+        badge.classList.add('oe-overlay');
+        if (getComputedStyle(a).position === 'static') a.style.position = 'relative';
+        a.appendChild(badge);
+        return;
+      }
 
       // Whole row tinted, like search results.
       if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
@@ -534,6 +581,7 @@
 
   function resetMarks() {
     document.querySelectorAll('.oe-tag, .oe-banner, .oe-note').forEach(n => n.remove());
+    document.querySelectorAll('.steam-ext-badges').forEach(b => { if (!b.children.length) b.remove(); });
     besideBadges.clear();
     document.querySelectorAll('[data-oe-done]').forEach(n => delete n.dataset.oeDone);
     document.querySelectorAll('[data-oe-checked]').forEach(n => delete n.dataset.oeChecked);

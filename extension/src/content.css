@@ -103,7 +103,22 @@
 .oe-tag.oe-l-maybe::before { content: ""; }
 .oe-tag.oe-l-steam { background: var(--oe-steam); color: #dfe6ec; }
 
-.search_result_row .oe-tag { display: block; width: max-content; }
+/* Shared badge row under titles in Steam lists (also used by DRM Check): it does not change the row height. */
+.steam-ext-badges {
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 4px;
+  max-width: 440px;
+  margin-top: 1px;
+  overflow: hidden;
+  z-index: 2;
+  white-space: nowrap;
+  line-height: 16px;
+}
+.steam-ext-badges > * { flex: none; margin: 0 !important; }
+.steam-ext-badges > .oe-tag { order: 0; padding: 0 6px; font-size: 11px; line-height: 16px; }
 .oe-row.oe-row-owned { box-shadow: inset 5px 0 0 #7b4ff0 !important; background-color: rgba(123, 79, 240, .16) !important; }
 .oe-row.oe-row-partial { box-shadow: inset 5px 0 0 #d98a00 !important; }
 .oe-row.oe-row-maybe { box-shadow: inset 5px 0 0 #b9a3ff !important; }
@@ -164,3 +179,8 @@
 .oe-hide-btn:hover, .oe-hide-btn:focus-visible { background: rgba(0, 0, 0, .45); }
 .oe-hide-btn:disabled { opacity: .6; cursor: default; }
 .oe-hide-status { font-size: 12px; opacity: .9; }
+
+/* Placed on the platform line of a search result (see placeBadgeRow). */
+.steam-ext-badges.steam-ext-badges-placed { margin-top: 0; }
+.oe-tag.oe-overlay { position: absolute; left: 6px; bottom: 6px; z-index: 3; max-width: calc(100% - 12px); margin: 0; }
+.steam-ext-badges > .oe-tag { max-width: 220px; overflow: hidden; text-overflow: ellipsis; }

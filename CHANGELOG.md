@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1 — 2026-11-25
+
+- Search results: the badge no longer makes rows taller (there was empty space under the game image). It now sits on the
+  platform-icons line, after the icons and before the release date, in a row shared with DRM Check.
+- Long badges end with an ellipsis; the full text is in the tooltip.
+- Steam profile game lists: the page script is registered again automatically after an extension update or a browser
+  restart (it used to disappear until the settings page was opened). If a game title is not found next to the image,
+  the badge is shown over the image.
+
 ## 2.0 — 2026-11-22
 
 Renamed from "Stop Before You Buy — Game Library Tracker" to **Owned Elsewhere**.

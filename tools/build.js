@@ -13,8 +13,10 @@ const v = manifest.version;
 execFileSync(process.execPath, [path.join(__dirname, 'locales.js')], { stdio: 'inherit' });
 
 const variants = {
-  chrome: m => m,
-  firefox: m => Object.assign({}, m, {
+  // Chrome / Edge stores reject background.scripts in MV3: keep only the service worker.
+  chrome: m => Object.assign({}, m, m.background ? { background: { service_worker: m.background.service_worker } } : {}),
+  // Firefox runs background.scripts; service_worker is Chrome-only.
+  firefox: m => Object.assign({}, m, m.background ? { background: { scripts: m.background.scripts } } : {}, {
     browser_specific_settings: {
       gecko: {
         id: 'owned-elsewhere@extensions',

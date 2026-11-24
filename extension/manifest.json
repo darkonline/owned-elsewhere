@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "__MSG_extShortName__",
-  "version": "2.0",
+  "version": "2.1",
   "description": "__MSG_extDescription__",
   "author": "Kreata Media",
   "homepage_url": "https://github.com/darkonline/owned-elsewhere",
@@ -43,6 +43,13 @@
       "run_at": "document_idle"
     }
   ],
+  "background": {
+    "service_worker": "src/background.js",
+    "scripts": [
+      "src/shared.js",
+      "src/background.js"
+    ]
+  },
   "content_security_policy": {
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
   },
